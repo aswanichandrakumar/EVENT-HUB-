@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* EventHub Design System - Modern event registration platform */
+
+@layer base {
+  :root {
+    /* Core backgrounds - Light theme */
+    --background: 0 0% 100%;
+    --background-secondary: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
+
+    /* Glass morphism cards - Light theme */
+    --card: 0 0% 100%;
+    --card-secondary: 0 0% 98%;
+    --card-foreground: 240 10% 3.9%;
+    --glass: 0 0% 100% / 0.9;
+    --glass-border: 240 5% 84% / 0.2;
+
+    /* Brand colors - Blue to purple gradient (unchanged) */
+    --primary: 234 89% 74%;
+    --primary-dark: 234 89% 60%;
+    --primary-light: 234 89% 85%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 95% 75%;
+    --secondary-dark: 270 95% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Gradients - Light theme */
+    --gradient-primary: linear-gradient(135deg, hsl(234 89% 74%) 0%, hsl(270 95% 75%) 100%);
+    --gradient-primary-dark: linear-gradient(135deg, hsl(234 89% 60%) 0%, hsl(270 95% 60%) 100%);
+    --gradient-background: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.9) 0%, hsl(0 0% 98% / 0.9) 100%);
+
+    /* Semantic colors - Light theme */
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+
+    /* Borders and inputs - Light theme */
+    --border: 240 5% 84%;
+    --input: 240 5% 84%;
+    --ring: 234 89% 74%;
+
+    /* Effects - Light theme */
+    --shadow-primary: 234 89% 74% / 0.15;
+    --shadow-card: 0 4% 6% -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-background);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Glass morphism card - Light theme */
+  .glass-card {
+    background: hsl(var(--glass));
+    border: 1px solid hsl(var(--glass-border));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+
+  /* Animated gradient background - Light theme */
+  .animated-gradient {
+    background: linear-gradient(-45deg, 
+      hsl(234 89% 74% / 0.05), 
+      hsl(270 95% 75% / 0.05), 
+      hsl(234 89% 60% / 0.05), 
+      hsl(270 95% 60% / 0.05)
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Glow effect - Light theme */
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--shadow-primary)), 
+                0 0 40px hsl(var(--shadow-primary)), 
+                0 0 80px hsl(var(--shadow-primary));
+  }
+
+  /* Custom scrollbar - Light theme */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-primary-dark);
+  }
+}
